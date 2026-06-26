@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NootriMind Brain Health & Ingredients Study Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #faf6ef; color: #3d3d3a; line-height: 1.7; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+    .header { text-align: center; margin-bottom: 2rem; }
+    .header h1 { font-size: 28px; margin-bottom: 8px; color: #446658; }
+    .header p { color: #888780; font-size: 14px; }
+    
+    .progress-bar { width: 100%; height: 8px; background: #e0ddd5; border-radius: 4px; margin-bottom: 2rem; overflow: hidden; }
+    .progress-fill { height: 100%; background: #d79d15; transition: width 0.3s; }
+    
+    .module-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+    .module-btn { padding: 10px 16px; background: #fff; border: 1px solid #d3d1c7; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+    .module-btn:hover { border-color: #888780; }
+    .module-btn.active { background: #446658; color: white; border-color: #446658; }
+    
+    .module-panel { display: none; }
+    .module-panel.active { display: block; }
+    
+    .module-title { font-size: 24px; color: #446658; margin-bottom: 8px; }
+    .module-meta { font-size: 13px; color: #888780; margin-bottom: 2rem; }
+    
+    .section { margin-bottom: 2rem; background: white; border: 1px solid #d3d1c7; border-radius: 8px; overflow: hidden; }
+    .section-header { padding: 16px; background: #f5f3ee; cursor: pointer; font-weight: 500; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .section-header:hover { background: #ebe7dd; }
+    .section-content { padding: 16px; display: none; color: #444; }
+    .section-content.open { display: block; }
+    .section-content p { margin-bottom: 12px; }
+    .section-content ul { margin-left: 20px; margin-bottom: 12px; }
+    .section-content li { margin-bottom: 8px; }
+    .section-content strong { color: #446658; }
+    .section-content em { color: #888780; }
+    
+    .key-point { background: #f0f9f7; padding: 12px; border-left: 4px solid #1d9e75; margin: 12px 0; border-radius: 4px; font-size: 13px; }
+    .warning { background: #fcebeb; padding: 12px; border-left: 4px solid #e24b4a; margin: 12px 0; border-radius: 4px; font-size: 13px; }
+    .tip { background: #faeeda; padding: 12px; border-left: 4px solid #ba7517; margin: 12px 0; border-radius: 4px; font-size: 13px; }
+    
+    .ingredient-box { background: #f5f3ee; padding: 12px; border-radius: 6px; margin: 12px 0; border-left: 3px solid #d79d15; font-size: 13px; }
+    
+    .nav-buttons { display: flex; gap: 12px; margin-top: 2rem; }
+    .nav-btn { padding: 12px 20px; border: 1px solid #d3d1c7; background: white; border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.2s; }
+    .nav-btn:hover:not(:disabled) { background: #f5f3ee; border-color: #888780; }
+    .nav-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .nav-btn.primary { background: #d79d15; color: white; border-color: #d79d15; }
+    .nav-btn.primary:hover { background: #ba7517; }
+    
+    .quiz { background: #f0f9f7; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .quiz h3 { color: #446658; margin-bottom: 1rem; }
+    .quiz-option { display: block; width: 100%; padding: 10px 12px; margin: 8px 0; background: white; border: 1px solid #d3d1c7; border-radius: 6px; cursor: pointer; text-align: left; font-size: 13px; transition: all 0.2s; }
+    .quiz-option:hover { background: #faf6ef; border-color: #888780; }
+    
+    .complete-msg { background: #e0f7e8; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; text-align: center; color: #0f6e56; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>NootriMind® Brain Health Study Guide</h1>
+      <p>Complete course: How brain chemistry works + how your ingredients support it + how to talk to customers</p>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    </div>
+
+    <div class="module-nav" id="moduleNav"></div>
+
+    <!-- MODULE 1: BRAIN BASICS -->
+    <div class="module-panel active" data-module="0">
+      <div class="module-title">Module 1: Brain Basics</div>
+      <div class="module-meta">⏱ 30 minutes | Foundation: How your brain actually works</div>
+
+      <div class="section">
+        <div class="section-header">How Your Brain Works: The Chemical Foundation <span>▼</span></div>
+        <div class="section-content open">
+          <p>Your brain is not just electrical impulses. It's a chemical factory that produces and uses specific molecules to create every thought, feeling, decision, and memory you have.</p>
+          
+          <p><strong>The Basic Unit: Neurons</strong></p>
+          <p>Your brain has ~86 billion neurons. Each one connects to thousands of others via synapses (the gaps between them). When a signal travels from one neuron to another, it doesn't just jump the gap electrically—it uses chemical messengers called neurotransmitters.</p>
+          
+          <p><strong>How a Synapse Works:</strong></p>
+          <ul>
+            <li>Electrical signal reaches the end of Neuron A</li>
+            <li>Neurotransmitter molecules are released into the synaptic gap</li>
+            <li>Neurotransmitters bind to receptors on Neuron B</li>
+            <li>Neuron B fires (or doesn't, depending on the strength of the signal)</li>
+            <li>Neurotransmitters are recycled or broken down</li>
+          </ul>
+          
+          <p>This happens trillions of times per second. Every thought, emotion, and action depends on this chemical cascade.</p>
+          
+          <div class="key-point"><strong>Key Concept:</strong> Your brain is not a computer running on electricity. It's a chemical system. You can't fix a chemical problem with willpower—you fix it by replenishing the chemicals.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">The Four Essential Neurotransmitters <span>▼</span></div>
+        <div class="section-content open">
+          <p>Your brain produces dozens of neurotransmitters, but four are the heavy hitters. When these are depleted or imbalanced, every cognitive and emotional problem follows.</p>
+          
+          <p><strong>1. Acetylcholine — The Learning & Memory Neurotransmitter</strong></p>
+          <ul>
+            <li>Controls: focus, attention, memory formation, learning speed</li>
+            <li>When low: brain fog, poor memory, difficulty focusing, slow thinking</li>
+            <li>Depleted by: stress, sleep deprivation, aging, poor diet</li>
+            <li>Supported by: DMAE, L-glutamine, B vitamins, sleep</li>
+          </ul>
+          
+          <p><strong>2. Dopamine — The Motivation & Drive Neurotransmitter</strong></p>
+          <ul>
+            <li>Controls: motivation, focus, reward, pleasure, movement</li>
+            <li>When low: depression, lack of motivation, poor focus, fatigue</li>
+            <li>Depleted by: chronic stress, overstimulation, poor sleep</li>
+            <li>Supported by: tyrosine (amino acid), movement, green tea extract</li>
+          </ul>
+          
+          <p><strong>3. GABA — The Calm & Relaxation Neurotransmitter</strong></p>
+          <ul>
+            <li>Controls: anxiety levels, relaxation, sleep quality</li>
+            <li>When low: anxiety, racing thoughts, poor sleep, tension</li>
+            <li>Depleted by: stress, caffeine, poor sleep, stimulation</li>
+            <li>Supported by: GABA directly (yes, it works), magnesium, ashwagandha</li>
+          </ul>
+          
+          <p><strong>4. Serotonin — The Mood & Stability Neurotransmitter</strong></p>
+          <ul>
+            <li>Controls: mood, emotional stability, sleep-wake cycle, appetite</li>
+            <li>When low: depression, anxiety, poor sleep, food cravings</li>
+            <li>Depleted by: stress, poor sleep, sunlight deprivation, high carbs</li>
+            <li>Supported by: tryptophan (amino acid), sunlight, sleep, exercise</li>
+          </ul>
+          
+          <div class="key-point"><strong>Pattern:</strong> Everything that makes you feel bad (stress, poor sleep, overstimulation) depletes these four. Everything that makes you feel good (sleep, movement, calm) replenishes them.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">What Brain Health Actually Means <span>▼</span></div>
+        <div class="section-content open">
+          <p>Brain health is not the absence of disease. It's the presence of capacity.</p>
+          
+          <p><strong>Signs of Healthy Brain Chemistry:</strong></p>
+          <ul>
+            <li>You can focus for 2+ hours without mental fatigue</li>
+            <li>You remember what you read and what people tell you</li>
+            <li>You sleep 7-9 hours and wake up clear</li>
+            <li>You handle stress without breaking or spiraling</li>
+            <li>You make decisions confidently, not second-guessing yourself</li>
+            <li>Your mood is stable—not constantly high or low</li>
+            <li>You have energy without needing caffeine as a crutch</li>
+          </ul>
+          
+          <p><strong>Signs Your Brain Chemistry is Depleted:</strong></p>
+          <ul>
+            <li>Brain fog after 90 minutes of work</li>
+            <li>You forget why you walked into a room</li>
+            <li>You can't fall asleep or you wake at 3am</li>
+            <li>Stress makes you reactive, not thoughtful</li>
+            <li>Decision paralysis (every choice feels impossible)</li>
+            <li>Mood swings or persistent low mood</li>
+            <li>Constant need for stimulation (coffee, energy drinks, snacks)</li>
+          </ul>
+          
+          <div class="tip"><strong>Important:</strong> These are not character flaws. They're not laziness or weakness. They're your system telling you it's running depleted. The fix is not "try harder"—it's "add support."</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">How Your Brain Gets Depleted <span>▼</span></div>
+        <div class="section-content open">
+          <p>Understanding depletion is the key to understanding why supplements matter.</p>
+          
+          <p><strong>The Stress Response (Acute):</strong></p>
+          <p>You face a real threat. Your brain releases adrenaline and cortisol. Your sympathetic nervous system (fight/flight) activates. This is necessary and works.</p>
+          
+          <p><strong>Chronic Stress (The Problem):</strong></p>
+          <p>You face ongoing demands without recovery. Work stress. Family stress. Financial stress. Never truly off. Your brain keeps releasing cortisol. This depletes:</p>
+          <ul>
+            <li>Neurotransmitters (they're used up faster than they're replaced)</li>
+            <li>Minerals like magnesium (cortisol uses them up)</li>
+            <li>B vitamins (needed to manufacture neurotransmitters)</li>
+            <li>Sleep quality (cortisol keeps you wired)</li>
+          </ul>
+          
+          <p><strong>Sleep Deprivation (The Multiplier):</strong></p>
+          <p>During sleep, your brain does maintenance. It consolidates memories (moves them from short-term to long-term storage). It flushes out metabolic waste. It replenishes neurotransmitter stores.</p>
+          <p>Without sleep: everything gets worse. Stress hormones stay elevated. Neurotransmitters don't recover. Your prefrontal cortex (decision-making) shuts down. You become reactive.</p>
+          
+          <p><strong>Poor Nutrition (The Silent Killer):</strong></p>
+          <p>Your brain is 60% fat and needs specific nutrients to function:</p>
+          <ul>
+            <li>Amino acids (to build neurotransmitters)</li>
+            <li>B vitamins (to activate those amino acids)</li>
+            <li>Minerals like magnesium, zinc, selenium (cofactors for brain chemistry)</li>
+            <li>Omega-3 fatty acids (DHA for brain cell structure)</li>
+          </ul>
+          <p>If you're eating processed food and skipping nutrients, your brain is trying to function without raw materials. No amount of willpower fixes that.</p>
+          
+          <div class="warning"><strong>The Catch:</strong> You can't outrun this with discipline. Even healthy, disciplined people can be chemically depleted. A high-performance CEO eating well, exercising, but stressed constantly can be depleted. The system needs actual support, not just willpower.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Where Supplements Fit In <span>▼</span></div>
+        <div class="section-content open">
+          <p>Supplements don't replace the basics. The basics are non-negotiable:</p>
+          <ul>
+            <li><strong>Sleep:</strong> 7-9 hours. This is where neurochemical repair happens.</li>
+            <li><strong>Movement:</strong> 30 mins of exercise daily. Raises dopamine, GABA, and serotonin.</li>
+            <li><strong>Nutrition:</strong> Real food. Protein, vegetables, healthy fats. Your brain needs building blocks.</li>
+            <li><strong>Stress management:</strong> Breathing, meditation, time in nature. Lowers cortisol.</li>
+          </ul>
+          
+          <p><strong>What Supplements Do:</strong></p>
+          <p>They fill the gap. If you're doing the basics but still depleted (which most high-performing people are), supplements provide the specific nutrients your brain needs to recover faster and perform better.</p>
+          
+          <p>Think of it like a car:</p>
+          <ul>
+            <li>Sleep, movement, nutrition, stress management = regular maintenance (oil changes, tune-ups)</li>
+            <li>Supplements = premium fuel and a newer engine</li>
+          </ul>
+          <p>You can't have good performance without the maintenance. But with the maintenance done, supplements amplify your results.</p>
+          
+          <div class="key-point"><strong>The Real Truth:</strong> Most people don't fail from taking supplements. They fail from not doing the basics while expecting supplements to work alone. Supplements + basics = transformation. Supplements without basics = waste of money.</div>
+        </div>
+      </div>
+
+      <div class="quiz">
+        <h3>✓ Quick Check</h3>
+        <p><strong>What are the four neurotransmitters that control focus, mood, calm, and motivation?</strong></p>
+        <button class="quiz-option" onclick="alert('✓ Correct! Acetylcholine, Dopamine, GABA, and Serotonin')">Acetylcholine, Dopamine, GABA, Serotonin</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Four Essential Neurotransmitters section.')">Adrenaline, Cortisol, Histamine, Oxytocin</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Four Essential Neurotransmitters section.')">Insulin, Melatonin, Thyroid, Estrogen</button>
+      </div>
+    </div>
+
+    <!-- MODULE 2: YOUR INGREDIENTS EXPLAINED -->
+    <div class="module-panel" data-module="1">
+      <div class="module-title">Module 2: Your Ingredients Explained</div>
+      <div class="module-meta">⏱ 45 minutes | Deep dive: What's in each SKU and why</div>
+
+      <div class="section">
+        <div class="section-header">Original Complex (Focus + Clarity Formula) <span>▼</span></div>
+        <div class="section-content open">
+          <p>Original Complex is your all-in-one stack for cognitive support. It combines vitamins, minerals, adaptogens, and nootropics to support acetylcholine (focus), dopamine (motivation), and overall brain energy.</p>
+          
+          <p><strong>The Vitamin & Mineral Foundation:</strong></p>
+          <div class="ingredient-box">
+            <strong>B-Complex Vitamins (B1, B2, B3, B5, B6, B12, Folate):</strong> These are cofactors. Your brain uses them to convert amino acids into neurotransmitters. Without B vitamins, your brain can't manufacture acetylcholine, dopamine, or serotonin efficiently. Most people are deficient in at least one B vitamin due to stress and poor diet.
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>Magnesium (50mg):</strong> The most depleted mineral in the American diet. Your brain needs it for hundreds of enzymatic reactions. Low magnesium = anxiety, tension, poor sleep, difficulty focusing. Supports GABA function.
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>Zinc (10mg) + Selenium (50mcg):</strong> Critical for immune function and antioxidant protection. Your brain generates a lot of reactive oxygen species (oxidative stress). These minerals protect against that damage. Also support thyroid function, which controls your metabolic baseline.
+          </div>
+          
+          <p><strong>The Focus Stack (Proprietary Blend):</strong></p>
+          <div class="ingredient-box">
+            <strong>DMAE (Dimethylaminoethanol):</strong> A precursor to acetylcholine. Your brain uses it to manufacture the "focus neurotransmitter." DMAE crosses the blood-brain barrier and increases acetylcholine availability. Result: sharper focus, better memory, faster thinking.
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>L-Glutamine + Glutamic Acid:</strong> These are amino acids your brain uses directly for energy. Your brain uses glucose for fuel, but it also uses glutamate. These amino acids are the "fuel" for your neurons, especially during mental exertion.
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>Bacopa Monnieri Extract:</strong> An adaptogenic herb used in Ayurvedic medicine for 3,000+ years. Research shows it improves memory retention, reduces anxiety, and enhances cognitive performance over time (3-4 weeks of consistent use). It works by reducing inflammation and supporting neurotransmitter function.
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>GABA (Gamma-Aminobutyric Acid):</strong> Your brain's primary inhibitory neurotransmitter (the "off switch"). It calms overactivity. Supplements with GABA are effective because some crosses the blood-brain barrier. Reduces anxiety without sedation. Allows focus to emerge (you can't focus when you're anxious).
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>Green Tea Extract (L-theanine + Caffeine):</strong> L-theanine is an amino acid that increases alpha brain waves (the state of calm focus). When combined with caffeine, you get focus without jitters. Caffeine raises dopamine. L-theanine keeps you calm. Together = alert but relaxed.
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>Huperzine A:</strong> An alkaloid compound that inhibits acetylcholinesterase (the enzyme that breaks down acetylcholine). By slowing breakdown, Huperzine A effectively increases acetylcholine availability in the synapse. This boosts memory and focus.
+          </div>
+          
+          <div class="ingredient-box">
+            <strong>DHA (Docosahexaenoic Acid, Omega-3):</strong> Your brain is 60% fat. DHA is a structural component of brain cell membranes. Without adequate DHA, your neurons can't function optimally. It also has anti-inflammatory properties, protecting against age-related cognitive decline.
+          </div>
+          
+          <p><strong>What Original Complex Does:</strong></p>
+          <p>Taken daily, Original Complex supports:</p>
+          <ul>
+            <li>Sharper focus (DMAE, Huperzine A, acetylcholine support)</li>
+            <li>Better memory (Bacopa, DHA, DMAE)</li>
+            <li>Stable energy (amino acids, B vitamins, glucose metabolism)</li>
+            <li>Calm focus (GABA, L-theanine, magnesium)</li>
+            <li>Mental clarity (inflammation reduction, antioxidants)</li>
+          </ul>
+          
+          <div class="tip"><strong>Timing:</strong> Take with breakfast. The amino acids need food for absorption. Effects are noticeable within 2-3 weeks of consistent use.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Mushroom+ Blend (Energy + Clarity Formula) <span>▼</span></div>
+        <div class="section-content open">
+          <p>Mushroom+ is a functional mushroom blend featuring adaptogens. These are herbs that help your body adapt to stress without overstimulating. The formula supports sustained energy, mental clarity, and immune resilience.</p>
+          
+          <p><strong>The Star Ingredient: Lion's Mane</strong></p>
+          <div class="ingredient-box">
+            <strong>Lion's Mane (Hericium erinaceus):</strong> A medicinal mushroom that stimulates BDNF (Brain-Derived Neurotrophic Factor) production. BDNF is the "fertilizer" for your brain. It promotes:
+            <ul>
+              <li>Neurogenesis (birth of new neurons)</li>
+              <li>Neuroplasticity (your brain's ability to rewire itself)</li>
+              <li>Memory improvement (especially long-term memory)</li>
+              <li>Recovery from cognitive decline</li>
+            </ul>
+            Research shows consistent use (4-6 weeks) improves focus, memory, and learning speed. It's particularly effective for people recovering from stress or cognitive fatigue.
+          </div>
+          
+          <p><strong>The Adaptogenic Support: Reishi</strong></p>
+          <div class="ingredient-box">
+            <strong>Reishi (Ganoderma lucidum):</strong> Known as the "mushroom of immortality" in traditional Chinese medicine. It's a powerful adaptogen that:
+            <ul>
+              <li>Lowers cortisol (stress hormone)</li>
+              <li>Improves sleep quality (without sedation during the day)</li>
+              <li>Strengthens immune resilience</li>
+              <li>Reduces inflammation system-wide</li>
+            </ul>
+            Unlike stimulants, Reishi doesn't give you energy—it allows your body to recover. Most people notice better sleep and less reactive stress after 2-3 weeks.
+          </div>
+          
+          <p><strong>The Energy Engine: Cordyceps</strong></p>
+          <div class="ingredient-box">
+            <strong>Cordyceps (Cordyceps sinensis):</strong> A fungus that boosts mitochondrial function (the "power plants" of your cells). It increases ATP production (cellular energy currency). The result:
+            <ul>
+              <li>Sustained energy without crash (not a stimulant)</li>
+              <li>Better endurance and stamina</li>
+              <li>Less fatigue during mental work</li>
+              <li>Improved oxygen utilization</li>
+            </ul>
+            Cordyceps is used by athletes because it genuinely improves energy production at the cellular level.
+          </div>
+          
+          <p><strong>The Immune & Antioxidant Support:</strong></p>
+          <div class="ingredient-box">
+            <strong>Shiitake, Maitake, Turkey Tails, Chaga, Royal Sun Agaricus, White Button Mushroom, Wood Ear:</strong> These are all functional mushrooms rich in polysaccharides (complex carbohydrates that boost immune function). They:
+            <ul>
+              <li>Strengthen natural killer cell activity (immune resilience)</li>
+              <li>Reduce inflammation</li>
+              <li>Support gut health (your immune system is in your gut)</li>
+              <li>Provide antioxidant protection against oxidative stress</li>
+            </ul>
+            When your immune system is strong, your brain recovers faster from stress. When you're fighting inflammation, your brain is sluggish.
+          </div>
+          
+          <p><strong>What Mushroom+ Does:</strong></p>
+          <ul>
+            <li>Sustained energy (Cordyceps + cellular support)</li>
+            <li>Mental clarity (inflammation reduction + BDNF from Lion's Mane)</li>
+            <li>Stress resilience (Reishi adaptogenic support)</li>
+            <li>Better sleep (Reishi, reduced stress)</li>
+            <li>Immune support (polysaccharides from all mushrooms)</li>
+            <li>No crash (it's not a stimulant—it's metabolic support)</li>
+          </ul>
+          
+          <div class="tip"><strong>Timing:</strong> Take with food (ideally breakfast or lunch). Don't take late in the day as it can be mildly energizing. Effects are cumulative—most people notice sustained energy and better sleep after 3-4 weeks.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Ashwagandha+ (Calm + Recovery Formula) <span>▼</span></div>
+        <div class="section-content open">
+          <p>Ashwagandha+ is your nervous system reset button. It's the most researched adaptogen for stress reduction and cortisol management.</p>
+          
+          <p><strong>The Main Ingredient: Organic Ashwagandha (650mg)</strong></p>
+          <div class="ingredient-box">
+            <strong>Ashwagandha (Withania somnifera):</strong> An adaptogenic herb that's been used in Ayurvedic medicine for 3,000 years. Modern research confirms it:
+            <ul>
+              <li><strong>Lowers cortisol:</strong> Multiple studies show 20-30% reduction in cortisol levels with consistent use. This is the most important effect. High cortisol is the root of stress-related cognitive decline.</li>
+              <li><strong>Strengthens GABA function:</strong> It enhances your brain's own calm neurotransmitter, reducing anxiety without sedation.</li>
+              <li><strong>Improves sleep quality:</strong> Not by being sedating, but by lowering cortisol so sleep can happen naturally. You fall asleep easier and sleep deeper.</li>
+              <li><strong>Reduces perceived stress:</strong> It literally changes how your brain processes stress. The same stressor feels less overwhelming.</li>
+              <li><strong>Supports thyroid function:</strong> Your thyroid controls your metabolic baseline. Healthy thyroid = stable energy and mood.</li>
+              <li><strong>Reduces inflammation:</strong> Chronic stress causes system-wide inflammation. Ashwagandha reduces inflammatory markers.</li>
+            </ul>
+          </div>
+          
+          <p><strong>The Critical Addition: Organic Black Pepper (5mg)</strong></p>
+          <div class="ingredient-box">
+            <strong>Black Pepper (Piperine):</strong> This is not filler. It's the bioavailability multiplier. Here's why it matters:
+            <p>Ashwagandha is not well-absorbed by itself. Your digestive system breaks it down before it enters your bloodstream. Black pepper (piperine) inhibits this breakdown and increases ashwagandha absorption by up to 20x.</p>
+            <p>Without black pepper, you'd need to take 10-15x more ashwagandha to get the same effect. The 5mg of black pepper in Ashwagandha+ is precisely calculated to maximize the 650mg of ashwagandha.</p>
+            <p>This is why dosing matters. A cheap ashwagandha without bioavailability enhancers is largely wasted.</p>
+          </div>
+          
+          <p><strong>What Ashwagandha+ Does:</strong></p>
+          <ul>
+            <li>Genuinely calms your nervous system (lowers cortisol)</li>
+            <li>Reduces perceived stress (same stressor, less overwhelm)</li>
+            <li>Improves sleep (you fall asleep easier, sleep deeper, wake clearer)</li>
+            <li>Stabilizes mood (less reactive, more grounded)</li>
+            <li>Reduces inflammation (system-wide benefit)</li>
+            <li>Supports thyroid (stable energy baseline)</li>
+            <li>NOT sedating (you can take it in the morning or evening)</li>
+          </ul>
+          
+          <p><strong>The Timeline:</strong></p>
+          <ul>
+            <li><strong>Week 1:</strong> Subtle shift. Sleep might be slightly better.</li>
+            <li><strong>Week 2-3:</strong> Noticeable calm. The same stressors don't trigger as much reactivity.</li>
+            <li><strong>Week 4+:</strong> Real transformation. Your baseline anxiety drops. Sleep is solid. You're more grounded.</li>
+          </ul>
+          
+          <div class="tip"><strong>Optimal Use:</strong> Take once daily with a meal. Consistency matters more than timing. Most people take it in the morning, but you can take it at night. After 30-60 days, effects compound. This is not a "take one and feel it" supplement—it's a foundational reset tool.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">How to Stack Them <span>▼</span></div>
+        <div class="section-content open">
+          <p><strong>For Most People (30-day starting point):</strong></p>
+          <p>Start with one SKU first. This lets you see what each does:</p>
+          <ul>
+            <li><strong>Focus issues?</strong> Start with Original Complex (1 capsule daily with breakfast)</li>
+            <li><strong>Energy crashes?</strong> Start with Mushroom+ (1 capsule daily with breakfast)</li>
+            <li><strong>Stress/sleep issues?</strong> Start with Ashwagandha+ (1 capsule daily)</li>
+          </ul>
+          
+          <p><strong>After 30 Days:</strong></p>
+          <p>You'll notice which area is your biggest bottleneck. Then you can add another:</p>
+          <ul>
+            <li>If you fixed focus but still have stress → add Ashwagandha+</li>
+            <li>If you fixed stress but still lack energy → add Mushroom+</li>
+            <li>If you have energy but can't focus → add Original Complex</li>
+          </ul>
+          
+          <p><strong>The Full Stack (What Veteran Users Do):</strong></p>
+          <p>Morning: Original Complex + Mushroom+ (together support focus, clarity, sustained energy)</p>
+          <p>Any time: Ashwagandha+ (for stress resilience and sleep)</p>
+          <p>This combination gives you:</p>
+          <ul>
+            <li>Sharp focus and memory (Original Complex)</li>
+            <li>Sustained energy without crash (Mushroom+)</li>
+            <li>Calm baseline and better sleep (Ashwagandha+)</li>
+            <li>Neuroplasticity support (Lion's Mane in Mushroom+)</li>
+            <li>Comprehensive nutrient support (all three together)</li>
+          </ul>
+          
+          <div class="key-point"><strong>The Real Answer to "Which one should I take?":</strong> All three work on different systems. You're not choosing between them—you're building a comprehensive support system. Think of it like fitness: cardio + strength training + flexibility work. You need all three.</div>
+        </div>
+      </div>
+
+      <div class="quiz">
+        <h3>✓ Quick Check</h3>
+        <p><strong>What does Lion's Mane do in Mushroom+ Blend?</strong></p>
+        <button class="quiz-option" onclick="alert('✓ Correct! Lion\'s Mane stimulates BDNF, which is the fertilizer for new neurons and neuroplasticity.')">Stimulates BDNF for neuroplasticity and memory</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Lion\'s Mane section.')">Provides energy through ATP production</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Lion\'s Mane section.')">Lowers cortisol and improves sleep</button>
+      </div>
+    </div>
+
+    <!-- MODULE 3: NEUROPLASTICITY -->
+    <div class="module-panel" data-module="2">
+      <div class="module-title">Module 3: Neuroplasticity & How Supplements Support It</div>
+      <div class="module-meta">⏱ 30 minutes | Your brain can rewire itself—here's how</div>
+
+      <div class="section">
+        <div class="section-header">What Is Neuroplasticity? <span>▼</span></div>
+        <div class="section-content open">
+          <p>Neuroplasticity is your brain's ability to physically rewire itself. This is not metaphorical. Your brain literally changes its structure based on how you use it.</p>
+          
+          <p><strong>The Classic Discovery:</strong></p>
+          <p>London taxi drivers were studied for their ability to memorize thousands of streets and landmarks. Brain scans showed their hippocampus (memory center) was larger than average—from decades of navigation practice. But here's the key: the change wasn't there from birth. It developed from practice.</p>
+          
+          <p><strong>How Rewiring Happens:</strong></p>
+          <ul>
+            <li><strong>When you learn or practice something:</strong> Neurons fire together repeatedly. The synapses between them strengthen. A new neural pathway forms.</li>
+            <li><strong>When you stop using a pathway:</strong> That pathway weakens. The brain redirects resources to pathways you actually use.</li>
+            <li><strong>Over time:</strong> Repeated practice literally changes brain structure. What was difficult becomes automatic.</li>
+          </ul>
+          
+          <p><strong>Key Timeline:</strong></p>
+          <ul>
+            <li>Minutes: A single learning session creates a fragile new synaptic connection</li>
+            <li>Hours: Sleep consolidates that connection, moving it from short-term to long-term memory</li>
+            <li>Days-weeks: Repeated practice strengthens the pathway</li>
+            <li>Months: The pathway becomes automatic (basal ganglia take over, requiring less conscious effort)</li>
+          </ul>
+          
+          <div class="key-point"><strong>This is why supplements matter:</strong> Neuroplasticity requires sleep, proper nutrition, and specific brain chemistry. If you're chemically depleted, your brain can't rewire efficiently. You practice, but the pathways don't stick. Supplements remove that bottleneck.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">The Biology of Rewiring <span>▼</span></div>
+        <div class="section-content open">
+          <p>Three things must happen for neuroplasticity to work:</p>
+          
+          <p><strong>1. Acetylcholine (Learning Signal)</strong></p>
+          <p>Acetylcholine is released during learning and attention. It marks synapses as "important, remember this." Without adequate acetylcholine, learning happens slowly or not at all.</p>
+          <p>Original Complex supports acetylcholine through DMAE, Huperzine A, and B vitamins. If you're trying to rewire your brain but your acetylcholine is depleted, you're pushing a boulder uphill.</p>
+          
+          <p><strong>2. BDNF (The Fertilizer)</strong></p>
+          <p>BDNF (Brain-Derived Neurotrophic Factor) is the signal that tells your brain "this pathway is important, invest in it." It's released during:</p>
+          <ul>
+            <li>Learning and practice</li>
+            <li>Exercise</li>
+            <li>Sleep</li>
+            <li>Stress recovery (calm periods)</li>
+          </ul>
+          <p>Without BDNF, your brain doesn't invest in rewiring. You practice, but nothing sticks. Lion's Mane (in Mushroom+) directly stimulates BDNF production. This is why it's so powerful for learning and recovery.</p>
+          
+          <p><strong>3. Sleep (The Consolidation)</strong></p>
+          <p>During sleep, especially deep sleep, your brain physically rewires. It moves memories from short-term to long-term storage. It strengthens important pathways and prunes irrelevant ones.</p>
+          <p>Without adequate sleep, all the learning and practice in the world doesn't stick. Ashwagandha+ (and Reishi in Mushroom+) improve sleep quality, ensuring this consolidation happens.</p>
+          
+          <p><strong>The Chain Reaction:</strong></p>
+          <ul>
+            <li>You practice something new (deliberate practice)</li>
+            <li>Acetylcholine marks it as important (Original Complex supports this)</li>
+            <li>BDNF is released to invest in that pathway (Lion's Mane amplifies this)</li>
+            <li>During sleep, the pathway is physically strengthened (better sleep from Ashwagandha+)</li>
+            <li>Over time, the pathway becomes automatic</li>
+          </ul>
+          
+          <div class="tip"><strong>Real-World Example:</strong> You're learning to code. Without proper support, it's slow and frustrating. Your brain is depleted from other stresses. With proper sleep, nutrition, and supplements: the same learning happens 3-4x faster because your brain is resourced to actually rewire.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Why Brain Fog Kills Plasticity <span>▼</span></div>
+        <div class="section-content open">
+          <p>Brain fog is not laziness. It's a signal that your brain doesn't have the resources to rewire.</p>
+          
+          <p><strong>What Brain Fog Actually Is:</strong></p>
+          <p>Your prefrontal cortex (the part that learns, makes decisions, focuses) is offline. You're running on default mode—habit, autopilot, reactive patterns. You can't access the cognitive resources needed to learn something new or change a habit.</p>
+          
+          <p><strong>Why It Happens:</strong></p>
+          <ul>
+            <li>Your neurotransmitters are depleted (chronic stress, poor sleep)</li>
+            <li>Your brain's energy systems are downregulated (cortisol, inflammation)</li>
+            <li>Your prefrontal cortex gets less blood flow and glucose</li>
+            <li>You literally can't focus or learn—it's not a choice</li>
+          </ul>
+          
+          <p><strong>The Vicious Cycle:</strong></p>
+          <ul>
+            <li>You feel fog</li>
+            <li>You blame yourself (lazy, not disciplined enough)</li>
+            <li>You stress about it (more cortisol)</li>
+            <li>Stress depletes your system further</li>
+            <li>Fog gets worse</li>
+          </ul>
+          
+          <p><strong>Breaking the Cycle:</strong></p>
+          <ol>
+            <li>Understand it's not a character flaw—it's a chemistry problem</li>
+            <li>Address the basics: sleep, nutrition, stress</li>
+            <li>Use supplements to remove the chemical bottleneck</li>
+            <li>Once resourced, start practicing what you want to rewire</li>
+            <li>Consistent practice + good chemistry = real change</li>
+          </ol>
+          
+          <div class="warning"><strong>Common Mistake:</strong> People try to learn, change habits, or improve while depleted. It doesn't work. You're trying to run at maximum performance on an empty tank. First stabilize (Ashwagandha+). Then build (Original Complex + Mushroom+). Then optimize (deliberate practice).</div>
+        </div>
+      </div>
+
+      <div class="quiz">
+        <h3>✓ Quick Check</h3>
+        <p><strong>Which three things must happen for neuroplasticity to work?</strong></p>
+        <button class="quiz-option" onclick="alert('✓ Correct! Acetylcholine (learning signal), BDNF (the fertilizer), and Sleep (consolidation).')">Acetylcholine, BDNF, and Sleep</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Biology of Rewiring section.')">Dopamine, Serotonin, and Cortisol</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Biology of Rewiring section.')">Willpower, Discipline, and Motivation</button>
+      </div>
+    </div>
+
+    <!-- MODULE 4: STRESS & NERVOUS SYSTEM -->
+    <div class="module-panel" data-module="3">
+      <div class="module-title">Module 4: Stress & The Nervous System</div>
+      <div class="module-meta">⏱ 30 minutes | How stress damages your brain—and how to fix it</div>
+
+      <div class="section">
+        <div class="section-header">The Stress Response (Designed for Real Threats) <span>▼</span></div>
+        <div class="section-content open">
+          <p>Your stress response is ancient. It evolved when threats were immediate and physical (a predator, starvation). The response is brilliant for those scenarios. The problem: you're using it for modern, chronic, psychological stressors.</p>
+          
+          <p><strong>The Acute Stress Response (Normal & Healthy):</strong></p>
+          <ul>
+            <li>You face a real threat (car swerving toward you, deadline crunch)</li>
+            <li>Your amygdala (fear center) detects the threat</li>
+            <li>Your hypothalamus releases CRH (corticotropin-releasing hormone)</li>
+            <li>Your pituitary releases ACTH (adrenocorticotropic hormone)</li>
+            <li>Your adrenal glands release adrenaline and cortisol</li>
+            <li>Your sympathetic nervous system (fight/flight) activates</li>
+            <li>Result: Your heart rate increases, blood goes to muscles, digestion shuts down, focus narrows to the threat</li>
+          </ul>
+          <p>This is brilliant for surviving a real threat. The problem comes next.</p>
+          
+          <p><strong>The Recovery Phase (Essential):</strong></p>
+          <p>After the threat passes, your parasympathetic nervous system (rest/digest) should activate. Your heart rate drops. Digestion restarts. Hormones normalize. Your brain consolidates the lesson and returns to baseline.</p>
+          
+          <div class="key-point"><strong>This recovery is critical.</strong> Without it, your system stays elevated. Cortisol stays high. Your brain stays in threat mode. Over weeks and months, this is catastrophic.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Chronic Stress (The Silent Killer) <span>▼</span></div>
+        <div class="section-content open">
+          <p>Modern life doesn't give you recovery. Work demands are constant. Financial stress persists. Social dynamics are exhausting. You never fully exit threat mode.</p>
+          
+          <p><strong>What Happens to Your Brain Under Chronic Stress:</strong></p>
+          <ul>
+            <li><strong>Hippocampus shrinks:</strong> Constant cortisol damages the memory center. You forget things. You struggle to consolidate learning.</li>
+            <li><strong>Prefrontal cortex weakens:</strong> Your decision-making, planning, and impulse control center gets smaller. You become reactive instead of thoughtful.</li>
+            <li><strong>Amygdala expands and overactivates:</strong> Your fear center gets bigger and more sensitive. Everything feels threatening. You're anxious about things that shouldn't cause anxiety.</li>
+            <li><strong>Neurotransmitter depletion:</strong> Constant cortisol and adrenaline burn through dopamine, serotonin, and acetylcholine faster than they're replenished. You feel depleted, unmotivated, anxious.</li>
+            <li><strong>Inflammation:</strong> Chronic cortisol increases inflammatory cytokines system-wide. Your brain is inflamed. Inflammation = fog, mood issues, poor sleep.</li>
+            <li><strong>Sleep destruction:</strong> Cortisol is meant to be high in morning (wake you up) and low at night (let you sleep). Chronic stress keeps it elevated all day and night. You can't sleep or you wake at 3am with racing thoughts.</li>
+          </ul>
+          
+          <p><strong>The Cascade Effect:</strong></p>
+          <ul>
+            <li>Poor sleep → depleted neurotransmitters</li>
+            <li>Depleted neurotransmitters → mood issues and anxiety</li>
+            <li>Anxiety → more cortisol release</li>
+            <li>More cortisol → worse sleep</li>
+          </ul>
+          <p>This becomes a self-sustaining cycle. You're caught.</p>
+          
+          <div class="warning"><strong>The Blame Problem:</strong> People blame themselves for anxiety, depression, poor decisions. "I'm weak. I'm lazy. I lack discipline." This is wrong. Your brain is literally injured. Your nervous system is dysregulated. Willpower can't fix a chemical problem.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Your Two Nervous Systems <span>▼</span></div>
+        <div class="section-content open">
+          <p><strong>Sympathetic Nervous System (Fight/Flight/Freeze)</strong></p>
+          <ul>
+            <li>Activates in response to threat</li>
+            <li>Increases heart rate, blood pressure, cortisol, adrenaline</li>
+            <li>Shuts down digestion and non-essential functions</li>
+            <li>Narrows focus (good for threats, bad for learning)</li>
+            <li>Necessary for real threats</li>
+            <li>Problem: chronically activated in modern life</li>
+          </ul>
+          
+          <p><strong>Parasympathetic Nervous System (Rest/Digest/Heal)</strong></p>
+          <ul>
+            <li>Activates when you're safe</li>
+            <li>Lowers heart rate, blood pressure, cortisol</li>
+            <li>Activates digestion and recovery</li>
+            <li>Broadens perspective (good for learning and planning)</li>
+            <li>Where sleep happens</li>
+            <li>Where healing and repair happen</li>
+            <li>Problem: most people never fully activate it</li>
+          </ul>
+          
+          <p><strong>The Goal:</strong></p>
+          <p>Flip back to parasympathetic when there's no real threat. This is not about eliminating stress. It's about recovering from it.</p>
+          
+          <div class="key-point"><strong>The Real Measure of Resilience:</strong> Not whether you face stress (everyone does), but how quickly you recover from it. Can you go from reactive back to calm? That's health.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">How Your SKUs Rebalance Your Nervous System <span>▼</span></div>
+        <div class="section-content open">
+          <p><strong>Ashwagandha+ (Primary Reset Tool)</strong></p>
+          <p>Ashwagandha directly lowers cortisol and strengthens parasympathetic tone. It:</p>
+          <ul>
+            <li>Reduces cortisol by 20-30% in studies</li>
+            <li>Enhances GABA (the brain's calm neurotransmitter)</li>
+            <li>Allows your body to access rest/digest mode</li>
+            <li>Improves sleep (where real recovery happens)</li>
+            <li>Reduces perceived stress (same stressor, less overwhelm)</li>
+          </ul>
+          <p>This is not sedation. It's nervous system rebalancing. You can take it morning or evening.</p>
+          
+          <p><strong>Original Complex (Cognitive Support During Recovery)</strong></p>
+          <p>While you're recovering from chronic stress, your cognitive function is compromised. Original Complex supports:</p>
+          <ul>
+            <li>GABA (calm neurotransmitter)</li>
+            <li>Acetylcholine (focus, so you're not just calm but also clear)</li>
+            <li>B vitamins (needed to manufacture neurotransmitters)</li>
+            <li>Magnesium (calms overactive nervous system)</li>
+          </ul>
+          <p>This allows you to think clearly while healing.</p>
+          
+          <p><strong>Mushroom+ (Immune & Sleep Support)</strong></p>
+          <p>Reishi (in Mushroom+) is a powerful adaptogen that:</p>
+          <ul>
+            <li>Calms overactivity</li>
+            <li>Improves sleep</li>
+            <li>Reduces inflammation (chronic stress causes inflammation)</li>
+            <li>Supports immune function (chronic stress suppresses immunity)</li>
+          </ul>
+          <p>Better sleep + reduced inflammation = faster recovery.</p>
+          
+          <div class="tip"><strong>The Sequence:</strong> First, stabilize (Ashwagandha+). Then support cognition during recovery (Original Complex). Then support sustained recovery (Mushroom+ for sleep and immune support). This is why people often take all three.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">The Real Fix: It's Not Just Supplements <span>▼</span></div>
+        <div class="section-content open">
+          <p>Here's the honest part: supplements help, but they're not the solution alone.</p>
+          
+          <p><strong>What Supplements Do:</strong></p>
+          <p>They remove the chemical bottleneck. They lower cortisol. They improve sleep. They support neurotransmitter production. This creates the conditions for healing.</p>
+          
+          <p><strong>What Actually Heals You:</strong></p>
+          <ul>
+            <li><strong>Sleep:</strong> This is where your brain recovers. 7-9 hours is non-negotiable. Supplements can help you sleep, but you have to actually sleep.</li>
+            <li><strong>Movement:</strong> Exercise lowers cortisol, increases dopamine, and improves sleep. 30 minutes daily is the minimum.</li>
+            <li><strong>Breathing:</strong> Slow, deep breathing activates the parasympathetic nervous system. 5 minutes of deep breathing can reset your system faster than supplements.</li>
+            <li><strong>Reducing actual stressors:</strong> If your job is destroying you, supplements can help you survive it—but the real fix is changing your job. Supplements can't substitute for boundary-setting and life design.</li>
+            <li><strong>Community and safety:</strong> Humans are social. Chronic loneliness and unsafety maintain stress. No supplement replaces genuine human connection.</li>
+          </ul>
+          
+          <div class="key-point"><strong>The Real Answer:</strong> Supplements + basics. If you take Ashwagandha+ but sleep 5 hours, it won't work. If you take Original Complex but skip exercise, you'll miss half the benefit. The supplement enhances a good foundation—it doesn't replace it.</div>
+        </div>
+      </div>
+
+      <div class="quiz">
+        <h3>✓ Quick Check</h3>
+        <p><strong>What happens to your hippocampus under chronic stress?</strong></p>
+        <button class="quiz-option" onclick="alert('✓ Correct! Constant cortisol damages and shrinks the hippocampus, impairing memory.')">It shrinks from constant cortisol exposure</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Chronic Stress section.')">It grows larger to compensate</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Chronic Stress section.')">It becomes more efficient</button>
+      </div>
+    </div>
+
+    <!-- MODULE 5: HOW TO EXPLAIN TO CUSTOMERS -->
+    <div class="module-panel" data-module="4">
+      <div class="module-title">Module 5: How to Explain This to Customers</div>
+      <div class="module-meta">⏱ 60 minutes | Selling it honestly, authentically, as the founder</div>
+
+      <div class="section">
+        <div class="section-header">The Three Customer Questions You'll Get <span>▼</span></div>
+        <div class="section-content open">
+          <p><strong>Question 1: "Does this actually work?"</strong></p>
+          
+          <p><strong>The Temptation:</strong> "Yes, absolutely, 100%." This sells but it's dishonest and you'll lose credibility when it doesn't match expectations.</p>
+          
+          <p><strong>The Honest Answer:</strong></p>
+          <p>"Here's the real answer: If your brain is depleted—from stress, poor sleep, high workload—yes, these work. The ingredients have research backing. They support your brain chemistry. But let me be clear about what they do and don't do.</p>
+          <p>They're not magic. They don't replace sleep, movement, or stress management. What they do: they remove the bottleneck. If your neurochemistry is depleted, your brain can't respond to the work you're doing. These ingredients fix that chemical foundation.</p>
+          <p>Most people notice changes in 2-3 weeks. Real shifts (better sleep, reduced anxiety, sustained focus) take 4-6 weeks. We're talking about rebuilding your baseline, not a quick fix."</p>
+          
+          <p><strong>Why This Works:</strong></p>
+          <ul>
+            <li>It's honest (builds trust)</li>
+            <li>It sets realistic expectations (they're not disappointed)</li>
+            <li>It educates them (they understand the mechanism)</li>
+            <li>It's founder voice, not marketing voice (authentic)</li>
+          </ul>
+          
+          <p><strong>Question 2: "Which one should I take?"</strong></p>
+          
+          <p><strong>The Quick Answer:</strong> "Depends on what's bothering you most. Let me ask you a few questions."</p>
+          
+          <p><strong>The Diagnostic Questions:</strong></p>
+          <ul>
+            <li>"If I asked you to focus for 2 hours right now, could you?" → Brain fog/focus issue</li>
+            <li>"How's your sleep? Do you wake up refreshed?" → Sleep or stress issue</li>
+            <li>"When you face stress, do you bounce back or spiral?" → Nervous system dysregulation</li>
+            <li>"Do you have afternoon energy crashes?" → Energy/mitochondrial issue</li>
+          </ul>
+          
+          <p><strong>The Recommendation Matrix:</strong></p>
+          <ul>
+            <li><strong>Brain fog + focus issues:</strong> Original Complex. "You need acetylcholine and glucose metabolism support."</li>
+            <li><strong>Afternoon crashes + fatigue:</strong> Mushroom+. "Your mitochondria need support. This is sustained energy, not a stimulant rush."</li>
+            <li><strong>Stress + sleep issues:</strong> Ashwagandha+. "You need to reset your nervous system. This lowers cortisol so you can actually recover."</li>
+            <li><strong>All of the above:</strong> All three. "You're running on empty. This is comprehensive support."</li>
+          </ul>
+          
+          <p><strong>The Honest Close:</strong></p>
+          <p>"Start with whichever addresses your biggest problem. Take it for 30 days consistently. Then add another if needed. Most people end up on all three because they address different systems."</p>
+          
+          <p><strong>Question 3: "Why not just drink coffee?"</strong></p>
+          
+          <p><strong>The Core Difference:</strong></p>
+          <p>"Caffeine is stimulation. It pushes your system. DMAE, Lion's Mane, and ashwagandha are support. They feed your system.</p>
+          <p>Stimulation works once. You get a rush, then a crash. Your body adapts, so you need more caffeine to get the same effect. Over time, you're dependent on it and your baseline is worse.</p>
+          <p>Support works over time. You're not getting a rush, but your actual baseline improves. After 6 weeks, you don't need coffee to function. You're genuinely resourced."</p>
+          
+          <p><strong>The Analogy:</strong></p>
+          <p>"Coffee is like a credit card withdrawal. You get money now but you're borrowing against tomorrow. Support is like income. You're building real resources."</p>
+          
+          <div class="key-point"><strong>The Meta-Pattern:</strong> All three questions are really asking "Will this actually help me?" The answer is: yes, if you do the basics. Sleep, movement, stress management, plus the supplement. Not the supplement alone.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">What NOT to Say (Red Flags) <span>▼</span></div>
+        <div class="section-content open">
+          <p><strong>❌ DO NOT SAY: "This will cure your brain fog."</strong></p>
+          <p>Cures are for diseases. Brain fog is feedback—your system is overloaded. Ashwagandha+ and Original Complex will support the recovery process, but they don't "cure" fog. The person has to do the work (sleep, stress management) too.</p>
+          
+          <p><strong>Honest version:</strong> "This will support your brain's recovery from brain fog. Combined with sleep and stress management, most people see significant improvement in 4-6 weeks."</p>
+          
+          <p><strong>❌ DO NOT SAY: "This is better than antidepressants" or "This replaces prescription medication."</strong></p>
+          <p>You will lose credibility and potentially harm someone. These are different tools for different problems.</p>
+          
+          <p><strong>Honest version:</strong> "This is designed for people whose brain chemistry is depleted from stress and poor self-care. If you have clinical depression or anxiety, talk to your doctor. These supplements can be complementary, but they don't replace professional treatment."</p>
+          
+          <p><strong>❌ DO NOT SAY: "We use KSM-66 ashwagandha" or reference ingredients we don't actually use.</strong></p>
+          <p>We use organic ashwagandha with black pepper. Own that. It's actually more transparent and bioavailable.</p>
+          
+          <p><strong>Honest version:</strong> "We use organic ashwagandha with organic black pepper to maximize absorption. The black pepper increases bioavailability by 20x, so you're getting real effects."</p>
+          
+          <p><strong>❌ DO NOT SAY: "Take one and you'll feel it today."</strong></p>
+          <p>This sets false expectations. Most people notice sleep improvement in 7-10 days, real stress reduction in 3 weeks, sustained focus improvement in 4-6 weeks.</p>
+          
+          <p><strong>Honest version:</strong> "Most people notice better sleep in the first week or two. Real shifts in stress resilience and focus take 3-6 weeks. This is about rebuilding your baseline, not a quick hit."</p>
+          
+          <p><strong>❌ DO NOT use phrases like:</strong></p>
+          <ul>
+            <li>"Naturally boost your brain" (too vague, sounds spammy)</li>
+            <li>"Unlock your potential" (claims too much)</li>
+            <li>"The brain supplement your doctor doesn't want you to know about" (conspiracy thinking)</li>
+            <li>"Increase intelligence by 30%" (not possible, not true)</li>
+          </ul>
+          
+          <div class="warning"><strong>Why This Matters:</strong> You're the founder and you're a veteran. You have authority and authenticity. If you sound like every other supplement marketer, you lose that. Stay grounded. Stay honest. That's your unfair advantage.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Phrases That Actually Land <span>▼</span></div>
+        <div class="section-content open">
+          <p><strong>The Founder Story (You):</strong></p>
+          <p>"I built this because I lived it. Post-service brain fog. Trying to function on depleted reserves. Realized it wasn't a character flaw—it was a chemistry problem. Once I understood brain chemistry and addressed it, everything changed. That's what NootriMind is: applying that understanding to real problems."</p>
+          
+          <p><strong>On Brain Fog:</strong></p>
+          <p>"Brain fog is not laziness. It's not that you lack discipline. It's your system waving a white flag. You've run it hard without adequate support. That's not failure—that's being human in a demanding world. The fix isn't willpower. It's actually supporting your system."</p>
+          
+          <p><strong>On the Basics:</strong></p>
+          <p>"Sleep, movement, nutrition, stress management—these are not optional. They're the foundation. If you're not doing these, no supplement will fix you. But if you ARE doing these and still struggling, that's where we come in. We're the amplifier, not the replacement."</p>
+          
+          <p><strong>On Supplements vs Stimulation:</strong></p>
+          <p>"Stimulation works once. Support works forever. Which one do you need?"</p>
+          
+          <p><strong>On Why Three SKUs:</strong></p>
+          <p>"Your brain has three major systems: focus, energy, and calm recovery. Most supplements target one. We built three because you need all three. Think of it like fitness—cardio alone doesn't work. You need cardio, strength, and flexibility."</p>
+          
+          <p><strong>On Taking It:</strong></p>
+          <p>"Start with your biggest problem. After 30 days, you'll know if it's working. Then add another if needed. It's not about buying all three—it's about building a system that actually works for you."</p>
+          
+          <p><strong>On Why You Trust This:</strong></p>
+          <p>"I'm not here to sell you something that doesn't work. My reputation depends on this. I take all three every day. My team takes these. It's not marketing—it's how we actually live. If you try it and it doesn't work for you, I want to know. That matters."</p>
+          
+          <div class="key-point"><strong>The Pattern:</strong> Every phrase above does three things: (1) Educates the customer, (2) Shows you understand the real problem, (3) Positions the supplement honestly as a tool, not a cure. That authenticity is what sells.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Handling Objections <span>▼</span></div>
+        <div class="section-content open">
+          <p><strong>Objection: "I'm skeptical. Show me the research."</strong></p>
+          
+          <p><strong>Your Response:</strong></p>
+          <p>"Good. Be skeptical. I am too. Here's what the research says: [cite specific studies for ashwagandha cortisol reduction, Lion's Mane BDNF, etc.]. But here's the thing—research is one thing. Real life is another. Try it for 30 days. Keep a journal of sleep quality, focus, stress level. That's your real data."</p>
+          
+          <p><strong>Objection: "How long does it take to work?"</strong></p>
+          
+          <p><strong>Your Response:</strong></p>
+          <p>"Sleep usually improves in 7-10 days. Stress reduction takes 2-3 weeks. Sustained focus improvement is 4-6 weeks. We're rebuilding your baseline, not giving you a rush. Most people don't notice the change until week 3 or 4 when they realize they didn't crash at 2pm like they always do."</p>
+          
+          <p><strong>Objection: "Can I take this with my medication?"</strong></p>
+          
+          <p><strong>Your Response:</strong></p>
+          <p>"Always check with your doctor. These are supporting baseline, not treating disease. Ashwagandha in particular can interact with certain medications, so definitely confirm with your prescriber first. That's not a cop-out—that's me being responsible."</p>
+          
+          <p><strong>Objection: "Are these FDA approved?"</strong></p>
+          
+          <p><strong>Your Response:</strong></p>
+          <p>"Supplements don't get 'approved' like drugs do. They're regulated for safety and manufacturing standards. Ours are third-party tested and made in the USA. That's the reassurance level in the supplement space. If you need pharmaceutical-grade oversight, you need a prescription medication—these are different tools."</p>
+          
+          <p><strong>Objection: "This seems expensive."</strong></p>
+          
+          <p><strong>Your Response:</strong></p>
+          <p>"Compare it to what you're doing: maybe spending $5 daily on coffee, energy drinks, or just grinding through depleted. Add in lost productivity from brain fog and bad decisions. A month of support is maybe $3-4 per day. That ROI is worth it if it returns even a few hours of clear thinking per week."</p>
+          
+          <p><strong>Objection: "Why should I trust you over other supplement brands?"</strong></p>
+          
+          <p><strong>Your Response:</strong></p>
+          <p>"You shouldn't trust me based on words. Try it. Take it for 30 days. If it works, you'll know. If it doesn't, tell me. I actually care about this because I use these products and my reputation depends on them working. This isn't a side hustle. It's my mission."</p>
+          
+          <div class="tip"><strong>Pattern Recognition:</strong> Notice every objection is really asking one thing: "Is this real or BS?" Your job is to answer that honestly. The people who try it are the ones who believe you're being straight with them.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">Your Unfair Advantage <span>▼</span></div>
+        <div class="section-content open">
+          <p>You have something no other supplement founder has: you ARE the customer.</p>
+          
+          <p><strong>You lived post-service brain fog.</strong> You understand the problem from the inside. You're not a marketer selling something you don't believe in. You're a founder who solved your own problem and built it for people like you.</p>
+          
+          <p><strong>You understand the veteran's brain.</strong> The seizure. The confusion. The waking up not knowing where you are. The years of fog. The struggle to function in civilian life. That's not abstract for you. That's lived experience.</p>
+          
+          <p><strong>You know brain chemistry.</strong> Not from textbooks you read to sell supplements. From understanding your own recovery. That authenticity shows.</p>
+          
+          <p><strong>How to Leverage This:</strong></p>
+          <ul>
+            <li>Tell your story. Not as marketing. As context. "Here's why I understand this problem."</li>
+            <li>Admit what you don't know. "I'm not a neuroscientist. I'm a guy who lived this and learned from experts."</li>
+            <li>Show you use these. Take all three daily. Be visible doing it. Post about your routine.</li>
+            <li>Listen to customers. If someone says it didn't work, actually care about that. Not every formula works for every person. That's okay.</li>
+            <li>Stay grounded. This is not "unlock your potential." This is "support your system so you can actually perform."</li>
+          </ul>
+          
+          <p><strong>Your Pitch (When Someone Asks What NootriMind Is):</strong></p>
+          <p>"I'm a veteran. Post-service I had brain fog, couldn't focus, couldn't sleep. Spent years figuring out what was actually happening—my neurotransmitters were depleted, my nervous system was dysregulated. Once I addressed that with the right nutrients and support, everything changed. NootriMind is what I wish I'd had. It's built by someone who lived the problem and understands it from the inside. Not marketing hype. Real support for people doing hard things."</p>
+          
+          <div class="key-point"><strong>This is your moat.</strong> Another supplement company can copy your formula, but they can't copy your story or your understanding. Own that. It's your real competitive advantage.</div>
+        </div>
+      </div>
+
+      <div class="quiz">
+        <h3>✓ Final Check</h3>
+        <p><strong>A customer says "I'm skeptical this will work." What's the right response?</strong></p>
+        <button class="quiz-option" onclick="alert('✓ Correct! Good skepticism is healthy. Show them research, encourage them to try it and track results.')">Good, be skeptical. Here's the research. Try it for 30 days and track changes.</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Handling Objections section.')">Trust me, it will definitely work.</button>
+        <button class="quiz-option" onclick="alert('Not quite. Review the Handling Objections section.')">Look, all the other supplement brands say the same thing.</button>
+      </div>
+
+      <div style="margin-top: 2rem; padding: 2rem; background: #e0f7e8; border-radius: 8px; text-align: center; color: #0f6e56;">
+        <h3 style="margin-bottom: 1rem;">✓ Course Complete!</h3>
+        <p><strong>You've completed all 5 modules. You now understand:</strong></p>
+        <p>• How your brain actually works (neurotransmitters, nervous system)</p>
+        <p>• Exactly what's in each NootriMind SKU and why</p>
+        <p>• The biology of neuroplasticity and how supplements support it</p>
+        <p>• How stress damages your brain—and how to fix it</p>
+        <p>• How to explain all of this to customers authentically</p>
+        <p style="margin-top: 1rem; font-size: 13px; color: #0f6e56;"><em>Bookmark this page. Use it as a reference whenever you need clarity on ingredients, mechanism, or customer conversation strategy. This is your foundation.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="nav-btn" id="prevBtn" onclick="prevModule()">← Previous</button>
+    <button class="nav-btn primary" id="nextBtn" onclick="nextModule()">Next →</button>
+  </div>
+
+  <script>
+    let currentModule = 0;
+    const modules = document.querySelectorAll('.module-panel');
+    const moduleCount = modules.length;
+
+    function showModule(idx) {
+      modules.forEach(m => m.classList.remove('active'));
+      modules[idx].classList.add('active');
+      
+      const percent = ((idx + 1) / moduleCount) * 100;
+      document.getElementById('progressFill').style.width = percent + '%';
+      
+      document.getElementById('prevBtn').disabled = idx === 0;
+      document.getElementById('nextBtn').disabled = idx === moduleCount - 1;
+      
+      window.scrollTo(0, 0);
+      
+      updateNav();
+    }
+
+    function updateNav() {
+      const btns = document.querySelectorAll('.module-btn');
+      btns.forEach((btn, idx) => {
+        btn.classList.toggle('active', idx === currentModule);
+      });
+    }
+
+    function nextModule() {
+      if (currentModule < moduleCount - 1) {
+        currentModule++;
+        showModule(currentModule);
+      }
+    }
+
+    function prevModule() {
+      if (currentModule > 0) {
+        currentModule--;
+        showModule(currentModule);
+      }
+    }
+
+    // Add section toggle functionality
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.section-header')) {
+        const section = e.target.closest('.section');
+        const content = section.querySelector('.section-content');
+        content.classList.toggle('open');
+        
+        const header = section.querySelector('.section-header');
+        const span = header.querySelector('span');
+        span.textContent = content.classList.contains('open') ? '▲' : '▼';
+      }
+    });
+
+    // Initialize
+    const moduleNav = document.getElementById('moduleNav');
+    modules.forEach((mod, idx) => {
+      const title = mod.querySelector('.module-title').textContent;
+      const btn = document.createElement('button');
+      btn.className = 'module-btn' + (idx === 0 ? ' active' : '');
+      btn.textContent = title;
+      btn.onclick = () => { currentModule = idx; showModule(idx); };
+      moduleNav.appendChild(btn);
+    });
+
+    showModule(0);
+  </script>
+</body>
+</html>
